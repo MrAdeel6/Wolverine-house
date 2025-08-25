@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import MobileBottomBar from './components/MobileBottomBar';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
@@ -62,6 +62,7 @@ function App() {
       <Router>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <div style={{ flex: 1 }}>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/product/:id" element={<ProductDetail />} />
@@ -97,6 +98,7 @@ function App() {
               </Route>
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
+          </HashRouter>
           </div>
           {/* Only show Footer on public (non-admin/seller) pages */}
           
